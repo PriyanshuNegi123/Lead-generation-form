@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web To Lead Form</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="script.js"></script>
 </head>
     <body>   
@@ -14,8 +15,14 @@
 
         <input 
         type=hidden 
+        name='captcha_settings' 
+        value='{"keyname":"LeadGeneration","fallback":"true","orgId":"00Dfj00000HYhNK","ts":""}'>
+
+        <input 
+        type=hidden 
         name="oid" 
         value="00Dfj00000HYhNK">
+
         <input 
         type=hidden 
         name="retURL" 
@@ -60,6 +67,9 @@
         required="true" class="inputdate"
         />
         <input type="submit" name="submit" class="submit">
+        <div class="g-recaptcha" 
+        data-sitekey="6LedAFosAAAAAKXOQiJekiJNx2fQfj9BaexlUX1X">
+        </div><br>
         </form>
 
     </body>
