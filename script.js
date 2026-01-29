@@ -1,9 +1,17 @@
-function beforesubmit(){
+let capthachecked = false;
+function beforesubmit(event){
+    if(capthachecked)
+{
+
     let outputdate = document.querySelector('.outputdate');
     let inputdate = document.querySelector('.inputdate');
 
     let formattedDate = new Date(inputdate.value).toLocaleDateString('en-IN');
     outputdate.value = formattedDate;
+} else{
+    alert("Please complete the CAPTCHA");
+    event.preventDefault();
+}
 }
 function timestamp() { 
     var response = document.getElementById("g-recaptcha-response"); 
@@ -17,3 +25,7 @@ function timestamp() {
     } 
 } 
 setInterval(timestamp, 500);
+
+function capthchasuccess(response) {
+    capthachecked = true;
+}
